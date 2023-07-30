@@ -1,0 +1,24 @@
+# 프로젝트 경로 설정
+project:
+  base-dir: file:///C:/project/FootStamp
+
+spring:
+  output:
+    ansi:
+      enabled: always
+
+  # 정적 소스 cache 미적용
+  resources:
+    static-locations: ${project.base-dir}/src/main/resources/static/
+    cache-period: 0
+
+  # thymeleaf cache 미적용
+  thymeleaf:
+    prefix: ${project.base-dir}/src/main/resources/templates/
+    cache: false
+
+  devtoolss:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true

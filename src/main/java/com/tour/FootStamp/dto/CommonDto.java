@@ -1,8 +1,16 @@
 package com.tour.FootStamp.dto;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@AllArgsConstructor
+@Getter
+@Setter //client->server(form data)
+@NoArgsConstructor
+@JsonNaming
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CommonDto {
 
     /*

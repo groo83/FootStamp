@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table id="userTable">
+            <thead>
+            <tr>
+                <th>createdtime</th>
+                <th>homepage</th>
+                <th>cpyrhtDivCd</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${detail.createdtime}">createdtime</td>
+                <td th:text="${detail.homepage}">homepage</td>
+                <td th:text="${detail.cpyrhtDivCd}">cpyrhtDivCd</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
