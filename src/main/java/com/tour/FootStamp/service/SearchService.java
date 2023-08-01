@@ -10,4 +10,6 @@ public interface SearchService {
     public List<CommonDto> searchTourApi(final String operationName, final String contentTypeId);
 
     public DetailDto searchDetailTourApi(final CommonDto commonDto);
+
+    public List<DetailDto> searchRegisterableStamp( final CommonDto commonDto, final int maxRedius);
 }

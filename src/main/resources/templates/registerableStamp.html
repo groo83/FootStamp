@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table id="userTable">
+            <thead>
+            <tr>
+                <th>관광지명</th>
+                <th>주소</th>
+                <th>거리</th>
+                <th>상세주소</th>
+                <th>썸네일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="stamp : ${registerableStamp}">
+                <td th:text="${stamp.title}">title</td>
+                <td th:text="${stamp.addr1}">주소</td>
+                <td th:text="${stamp.dist}">거리</td>
+                <td th:text="${stamp.addr2}">상세주소</td>
+                <td><img th:src="${stamp.firstimage}">썸네일</img></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

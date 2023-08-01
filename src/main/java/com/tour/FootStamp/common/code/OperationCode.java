@@ -4,5 +4,6 @@ public class OperationCode {
 
     public static final String SEARCH_TYPE_AREA = "areaBasedList1";
     public static final String SEARCH_TYPE_DETAIL = "detailCommon1";
+    public static final String SEARCH_TYPE_LOCATION = "locationBasedList1";
 
 }

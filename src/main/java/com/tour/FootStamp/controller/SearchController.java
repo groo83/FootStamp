@@ -1,6 +1,7 @@
 package com.tour.FootStamp.controller;
 
 import com.tour.FootStamp.common.code.ContentTypeIdCode;
+import com.tour.FootStamp.common.code.EtcCode;
 import com.tour.FootStamp.common.code.OperationCode;
 import com.tour.FootStamp.dto.CommonDto;
 import com.tour.FootStamp.dto.DetailDto;
@@ -35,5 +36,13 @@ public class SearchController {
 
         model.addAttribute("detail", detail);
         return "detailContent";
+    }
+
+    @RequestMapping("registerableStamp")
+    public String searchRegisterableStamp(Model model, CommonDto commonDto){
+        List<DetailDto> registerableStamp = searchService.searchRegisterableStamp( commonDto, EtcCode.DEFAULT_MAX_REDIUS );
+
+        model.addAttribute("registerableStamp", registerableStamp);
+        return "registerableStamp";
     }
 }

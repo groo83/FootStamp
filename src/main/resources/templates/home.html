@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=80884d57c9dfbcf36cb408aef9c37196"></script>
+<script src="/js/kakaoMap.js" defer></script>
+<script src="/js/home.js" defer></script>
+
+<body>
+<div id="map" style="width:500px;height:400px;"></div>
+<div class="container">
+    <div>
+        <table id="userTable">
+            <thead>
+            <tr>
+                <th>관광지명</th>
+                <th>주소</th>
+                <th>거리</th>
+                <th>상세주소</th>
+                <th>썸네일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="stamp : ${registerableStamp}">
+                <td th:text="${stamp.title}">title</td>
+                <td th:text="${stamp.addr1}">주소</td>
+                <td th:text="${stamp.dist}">거리</td>
+                <td th:text="${stamp.addr2}">상세주소</td>
+                <td><img th:src="${stamp.firstimage}">썸네일</img></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

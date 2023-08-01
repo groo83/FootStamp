@@ -45,7 +45,7 @@ public class SearchImpl implements SearchService {
 
         // defaultYN : 상세 정보 조회 flag
         String param = "serviceKey=" + serviceKey + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&_type=json&defaultYN=Y&"
-        + "contentId=" + commonDto.getContentId();
+                        + "contentId=" + commonDto.getContentId();
 
         String returnData = UrlConnection.getRequest(tourApiUrl, param);
 
@@ -56,6 +56,25 @@ public class SearchImpl implements SearchService {
             return detail = new DetailDto();
         else
             return detail;
+    }
+
+    @Override
+    public List<DetailDto> searchRegisterableStamp(final CommonDto commonDto, final int maxRedius) {
+        String tourApiUrl = "http://apis.data.go.kr/B551011/KorService1/" + OperationCode.SEARCH_TYPE_LOCATION;
+
+        String param = "serviceKey=" + serviceKey + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&_type=json&arrange=A&listYN=Y&"
+                + "mapX=" + commonDto.getMapx() + "&mapY=" + commonDto.getMapy() + "&radius=" + maxRedius;
+
+        String returnData = UrlConnection.getRequest(tourApiUrl, param);
+
+        JSONArray items =  parseJsonStrToJsonArr(returnData);
+        List<DetailDto> searchList = castedGenericList(items);
+
+
+        if (searchList == null || searchList.isEmpty())
+            searchList = new ArrayList<>();
+
+        return searchList;
     }
 
     public JSONArray parseJsonStrToJsonArr(final String jsonStr){

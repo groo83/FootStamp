@@ -49,5 +49,10 @@ public class DetailDto extends CommonDto {
      */
     private String mlevel;
 
+    /*
+     * 위치기반
+     * 중심좌표로부터거리(단위:m)
+     */
+    private String dist;
 
 }
