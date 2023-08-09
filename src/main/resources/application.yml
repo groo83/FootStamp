@@ -17,8 +17,11 @@ spring:
     prefix: ${project.base-dir}/src/main/resources/templates/
     cache: false
 
-  devtoolss:
+  devtools:
     livereload:
       enabled: true
     restart:
       enabled: true
+
+  freemarker:
+    cache: false

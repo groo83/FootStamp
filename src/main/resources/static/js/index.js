@@ -6,10 +6,9 @@ if (!navigator.geolocation) {
 }
 
 function success(position) {
-    console.log('test '+position.coords.longitude+", "+position.coords.longitude);
-    document.getElementById('mapx').value = position.coords.longitude;
-    document.getElementById('mapy').value = position.coords.latitude;
-    console.log(form);
+    document.querySelector("[name=mapx]").value = position.coords.longitude;
+    document.querySelector("[name=mapy]").value = position.coords.latitude;
+
     document.form.submit();
 
     // TODO fetch data table
@@ -43,4 +42,8 @@ function success(position) {
             )
       .catch((error) => console.log("error:", error));
       */
+}
+
+function error(error) {
+    alert("현재 위치를 가져올 수 없음");
 }
