@@ -43,6 +43,6 @@ public class SearchController {
         List<DetailDto> registerableStamp = searchService.searchRegisterableStamp( commonDto, EtcCode.DEFAULT_MAX_REDIUS );
 
         model.addAttribute("registerableStamp", registerableStamp);
-        return "registerableStamp";
+        return "registerableStamp";//redirect:../templates/
     }
 }
