@@ -9,13 +9,6 @@
         <header class="major">
             <h2>등록가능한 발도장(반경 5km 이내)</h2>
         </header>
-        <tr th:each="stamp : ${registerableStamp}">
-            <td th:text="${stamp.title}">title</td>
-            <td th:text="${stamp.addr1}">주소</td>
-            <td th:text="${stamp.dist}">거리</td>
-            <td th:text="${stamp.addr2}">상세주소</td>
-            <td><img th:src="${stamp.firstimage}">썸네일</img></td>
-        </tr>
         <div class="posts">
             <article th:each="stamp : ${registerableStamp}">
                 <a href="#" class="image"><img th:src="${stamp.firstimage}" alt=""></a>
