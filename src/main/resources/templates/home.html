@@ -4,22 +4,30 @@
     <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 <body>
-<div class="container">
-    <section>
-        <header class="major">
-            <h2>등록가능한 발도장(반경 5km 이내)</h2>
-        </header>
-        <div class="posts">
-            <article th:each="stamp : ${registerableStamp}">
-                <a href="#" class="image"><img th:src="${stamp.firstimage}" alt=""></a>
-                <h3 th:text="${stamp.title}"></h3>
-                <p th:text="${stamp.addr1}"></p>
-                <ul class="actions">
-                    <li><a href="#" class="button">등록</a></li>
-                </ul>
-            </article>
+<div id="wrapper">
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <section>
+                <header class="major">
+                    <h2>등록가능한 발도장(반경 5km 이내)</h2>
+                </header>
+                <div class="posts">
+                    <article th:each="stamp : ${registerableStamp}">
+                        <a href="#" class="image"><img th:src="${stamp.firstimage}" alt=""></a>
+                        <h3 th:text="${stamp.title}"></h3>
+                        <p th:text="${stamp.addr1}"></p>
+                        <!--TODO contentId hidden -->
+                        <ul class="actions">
+                            <li><a href="#" class="button">등록</a></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
         </div>
-    </section>
+    </div>
 <!--
     <div>
         <table id="registerableTable">
