@@ -21,3 +21,12 @@ spring:
 
   freemarker:
     cache: false
+
+# mysql 연결
+  spring:
+    datasource:
+      driver: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+      username: sanghobim
+      password: sangho20##
+      mapper-locations: classpath:/mapper/**/*.xml
