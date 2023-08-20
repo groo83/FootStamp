@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <script src="/js/home.js" defer></script>
 </head>
 <body>
 <div id="wrapper">
-
     <!-- Main -->
     <div id="main">
         <div class="inner">
@@ -15,42 +15,21 @@
                     <h2>등록가능한 발도장(반경 5km 이내)</h2>
                 </header>
                 <div class="posts">
-                    <article th:each="stamp : ${registerableStamp}">
-                        <a href="#" class="image"><img th:src="${stamp.firstimage}" alt=""></a>
-                        <h3 th:text="${stamp.title}"></h3>
-                        <p th:text="${stamp.addr1}"></p>
-                        <!--TODO contentId hidden -->
-                        <ul class="actions">
-                            <li><a href="#" class="button">등록</a></li>
-                        </ul>
+                    <article th:each="stamp : ${registerableStamp}" >
+                        <div th:contentId="${stamp.contentid}"
+                             th:onclick="|location.href='@{/search/detailContent(contentId=${stamp.contentid})}'|">
+                            <a href="#" class="image"><img th:src="${stamp.firstimage}" alt=""></a>
+                            <h3 th:text="${stamp.title}"></h3>
+                            <p th:text="${stamp.addr1}"></p>
+                            <ul class="actions">
+                                <li><a href="#" class="button">등록</a></li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
             </section>
         </div>
     </div>
-<!--
-    <div>
-        <table id="registerableTable">
-            <thead>
-            <tr>
-                <th>관광지명</th>
-                <th>주소</th>
-                <th>거리</th>
-                <th>상세주소</th>
-                <th>썸네일</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="stamp : ${registerableStamp}">
-                <td th:text="${stamp.title}">title</td>
-                <td th:text="${stamp.addr1}">주소</td>
-                <td th:text="${stamp.dist}">거리</td>
-                <td th:text="${stamp.addr2}">상세주소</td>
-                <td><img th:src="${stamp.firstimage}">썸네일</img></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>-->
 </div> <!-- /container -->
 </body>
 </html>

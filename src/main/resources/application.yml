@@ -22,11 +22,19 @@ spring:
   freemarker:
     cache: false
 
-# mysql 연결
-  spring:
-    datasource:
-      driver: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
-      username: sanghobim
-      password: sangho20##
-      mapper-locations: classpath:/mapper/**/*.xml
+  # mysql 연결
+  datasource:
+    driver: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+    username: sanghobim
+    password: sangho20##
+    #mapper-locations: classpath:/mapper/**/*.xml
+
+    #server:
+    #  ssl:
+    #    enabled: true
+    #    key-store-type: PKCS12
+    #    key-store: keystore.p12 #classpath:/
+    #    key-store-password: 1q2w3e4r
+    #    key-password: 1q2w3e4r
+    #port: 8443

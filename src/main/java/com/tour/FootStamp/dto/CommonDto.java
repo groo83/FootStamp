@@ -44,9 +44,19 @@ public class CommonDto {
     private String contentId;
 
     /*
+     * 콘텐츠ID (등록가능한 발도장 응답)
+     */
+    private String contentid;
+
+    /*
      * 관광타입 ID
      */
     private String contentTypeId;
+
+    /*
+     * 관광타입 ID (등록가능한 발도장 응답)
+     */
+    private String contenttypeid;
 
     /*
      * 주소
