@@ -30,6 +30,15 @@ spring:
     password: sangho20##
     #mapper-locations: classpath:/mapper/**/*.xml
 
+ # mybatis
+    mybatis:
+#      config= mybatis-config.xml
+      type-aliases-package: com.tour.FootStamp.model
+      mapper-locations: mybatis/mapper/**/*.xml
+
+    mybatis.config: mybatis-config.xml
+
+
     #server:
     #  ssl:
     #    enabled: true
