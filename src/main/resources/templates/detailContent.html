@@ -3,6 +3,26 @@
 <!-- KAKAO MAP API-->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=80884d57c9dfbcf36cb408aef9c37196"></script>
 <script src="/js/kakaoMap.js" defer></script>
+<script src="/js/detailContent.js" defer></script>
+<style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .delete-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
 <body>
 <div id="wrapper">
     <!-- Main -->
@@ -17,7 +37,15 @@
                 <a href="#" class="image"><img th:src="${detail.firstimage}" alt=""></a>
                 <div th:text="${detail.homepage}"></div>
                 <div id="map" style="width:500px;height:400px;"></div>
+                <!--<input type="file" id="fileUp" name="fileUp" multiple="" onchange="fileChange(this)">-->
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="text" id="textInput" placeholder="텍스트 입력">
+                    <input type="file" id="fileInput" accept="image/*">
+                    <button type="button" id="uploadButton">업로드</button>
+                </form>
+                <div id="imageContainer"></div>
             </section>
+
         </div>
     </div>
 </div>

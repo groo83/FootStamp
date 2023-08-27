@@ -22,22 +22,34 @@ spring:
   freemarker:
     cache: false
 
-  # mysql 연결
+  # mysql hikari 연결
+#  datasource:
+#    hikari:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+#      username: sanghobim
+#      password: sangho20##
+    #mapper-locations: classpath:/mapper/**/*.xml
+
   datasource:
-    driver: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
     username: sanghobim
     password: sangho20##
-    #mapper-locations: classpath:/mapper/**/*.xml
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
- # mybatis
-    mybatis:
-#      config= mybatis-config.xml
-      type-aliases-package: com.tour.FootStamp.model
-      mapper-locations: mybatis/mapper/**/*.xml
-
-    mybatis.config: mybatis-config.xml
-
+  jpa:
+    database: mysql
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    # 처리시 발생하는 SQL을 보여줄 것인지 결정
+    show-sql: true
+    generate-ddl: false
+    # 프로젝트 실행시 자동으로 DDL(create, alter, drop) 을 생성할 것 인지 결정하는 설정
+    hibernate:
+      ddl-auto: none #update
+    # 실제 JPA 구현체인 Hibernate가 동작하면서 발생하는 SQL을 포맷팅해서 출력한다 -> 실행되는 SQL의 가독성을 높여준다
+    properties:
+      hibernate:
+        format_sql: true
 
     #server:
     #  ssl:
