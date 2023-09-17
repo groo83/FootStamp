@@ -37,7 +37,7 @@ out/
 .vscode/
 
 ### Config ###
-**/resource/config
+src/main/resources/config
 
 ### Java ###
 # Compiled class file
