@@ -15,17 +15,14 @@ class MemoryMemberRepositoryTest {
     EntityManager ea;
     MemberRepository repository = new MemberRepository(ea);
 
-    /*@AfterEach
-    public void afterEach(){
-        repository.clearStore();
-    }
-*/
     @Test
     public void save(){
         //given
         Member member = new Member();
-        member.setName("first_jpa_test");
-        member.setName("test_pw");
+        //member.setName("first_jpa_test");
+        member.setName("jyp");
+        member.setId("second_jpa_test");
+        member.setPw("1234");
 
         //when
         repository.save(member);

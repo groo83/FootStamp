@@ -1,14 +1,19 @@
+##############################################
+# setting file Encrypt
+##############################################
+jasypt:
+  encryptor:
+    bean: jasyptEncryptorAES
+
 spring:
   output:
     ansi:
       enabled: always
 
-  # 정적 소스 cache 미적용
   resources:
     static-locations: classpath:/static/
     cache-period: 0
 
-  # thymeleaf cache 미적용
   thymeleaf:
     prefix: classpath:/templates/
     cache: false
@@ -22,40 +27,21 @@ spring:
   freemarker:
     cache: false
 
-  # mysql hikari 연결
-#  datasource:
-#    hikari:
-#      driver-class-name: com.mysql.cj.jdbc.Driver
-#      jdbc-url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
-#      username: sanghobim
-#      password: sangho20##
-    #mapper-locations: classpath:/mapper/**/*.xml
+  config:
+    import: classpath:/config/etc.yml
 
   datasource:
-    url: jdbc:mysql://211.47.75.102:3306/dbsanghobim?&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
-    username: sanghobim
-    password: sangho20##
     driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(owv/+Z7A5lsFkSRhULeEl6YDUlsitOEjdGl7CWqbRRnPRHnsxENxqquUP7SxwXWyfFwk/xSg8dVbgKLMizim88+AylmVjF2L4zZKfGznYg0uG2iausO1/ITJEhsAfO3l5u7ieDgFvz4effpYqrY/pW/N386io6Od8wWlZ6NZDDCqcNiXj8yA+IeIy5iafGbTL69Q9TLZIPfHBlw/Q2QoEf4Wdm4JZjLSlDmPHVO8nps=)
+    username: ENC(eDd+lItBrkDKec18xRTKCMzB5LYnrwIS2q23ZQ/74VO3diLiGieigsLwX2pTZgKR)
+    password: ENC(Nimpx+5L6v5p8HXgPLOkbHw3RFgc7TuhPf1gRNp80hGx3fSLUlnA9Qgnd86p6ZQt)
 
   jpa:
     database: mysql
-    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    # 처리시 발생하는 SQL을 보여줄 것인지 결정
     show-sql: true
     generate-ddl: false
-    # 프로젝트 실행시 자동으로 DDL(create, alter, drop) 을 생성할 것 인지 결정하는 설정
     hibernate:
       ddl-auto: none #update
-    # 실제 JPA 구현체인 Hibernate가 동작하면서 발생하는 SQL을 포맷팅해서 출력한다 -> 실행되는 SQL의 가독성을 높여준다
     properties:
       hibernate:
         format_sql: true
-
-    #server:
-    #  ssl:
-    #    enabled: true
-    #    key-store-type: PKCS12
-    #    key-store: keystore.p12 #classpath:/
-    #    key-store-password: 1q2w3e4r
-    #    key-password: 1q2w3e4r
-    #port: 8443

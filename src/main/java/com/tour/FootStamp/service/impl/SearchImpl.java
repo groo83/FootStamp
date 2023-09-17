@@ -5,12 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tour.FootStamp.common.code.EtcCode;
 import com.tour.FootStamp.common.code.OperationCode;
 import com.tour.FootStamp.common.connection.UrlConnection;
+import com.tour.FootStamp.config.Etc;
 import com.tour.FootStamp.dto.CommonDto;
 import com.tour.FootStamp.dto.DetailDto;
 import com.tour.FootStamp.service.SearchService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,13 +21,13 @@ import java.util.List;
 @Service
 public class SearchImpl implements SearchService {
 
-    private String serviceKey = "csJWEPxvxx9ERkQ6Ci2sVOH3A2LlUNTLMKgtF%2BWmQcH%2FSHhyiXjhhUk2fUbxidV56R2wEbWGPEB%2B4efWZmmCYA%3D%3D";
+    @Autowired Etc etc;
 
     @Override
     public List<CommonDto> searchTourApi(final String operationName, final String contentTypeId) {
         String tourApiUrl = "http://apis.data.go.kr/B551011/KorService1/" + operationName;
 
-        String param = "serviceKey=" + serviceKey + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&_type=json&"
+        String param = "serviceKey=" + etc.getApiKey() + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&_type=json&"
                         + "contentTypeId=" + contentTypeId;
 
         String returnData = UrlConnection.getRequest(tourApiUrl, param);
@@ -44,7 +46,7 @@ public class SearchImpl implements SearchService {
         String tourApiUrl = "http://apis.data.go.kr/B551011/KorService1/" + OperationCode.SEARCH_TYPE_DETAIL;
 
         // defaultYN : 상세 정보 조회 flag
-        String param = "serviceKey=" + serviceKey + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&_type=json&defaultYN=Y&firstImageYN=Y&mapinfoYN=Y&overviewYN=Y&areacodeYN=Y&"
+        String param = "serviceKey=" + etc.getApiKey() + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&_type=json&defaultYN=Y&firstImageYN=Y&mapinfoYN=Y&overviewYN=Y&areacodeYN=Y&"
                         + "contentId=" + commonDto.getContentId();
 
         String returnData = UrlConnection.getRequest(tourApiUrl, param);
@@ -62,7 +64,7 @@ public class SearchImpl implements SearchService {
     public List<DetailDto> searchRegisterableStamp(final CommonDto commonDto, final int maxRedius) {
         String tourApiUrl = "http://apis.data.go.kr/B551011/KorService1/" + OperationCode.SEARCH_TYPE_LOCATION;
 
-        String param = "serviceKey=" + serviceKey + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&_type=json&arrange=A&listYN=Y&"
+        String param = "serviceKey=" + etc.getApiKey() + "&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&_type=json&arrange=A&listYN=Y&"
                 + "mapX=" + commonDto.getMapx() + "&mapY=" + commonDto.getMapy() + "&radius=" + maxRedius;
 
         String returnData = UrlConnection.getRequest(tourApiUrl, param);

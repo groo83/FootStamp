@@ -1,0 +1,6 @@
+etc:
+  api:
+    key: csJWEPxvxx9ERkQ6Ci2sVOH3A2LlUNTLMKgtF%2BWmQcH%2FSHhyiXjhhUk2fUbxidV56R2wEbWGPEB%2B4efWZmmCYA%3D%3D
+
+  jasypt:
+    key: footstamp_jasypt_key

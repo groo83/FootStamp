@@ -96,19 +96,11 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 
             uploadedImage = file;
 
-            // TODO
-            // 예: fetch 또는 XMLHttpRequest를 사용하여 서버로 전송
-
-
-
-
             // 서버에 전달할 데이터 구성
             const formData = new FormData(uploadForm);
             formData.append('image', file);
 
-
         };
-
         reader.readAsDataURL(file);
     }
 });
