@@ -1,45 +1,11 @@
 package com.tour.FootStamp.repository;
 
-import com.tour.FootStamp.entity.Member;
-import jakarta.persistence.EntityManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import com.tour.FootStamp.entity.MemberEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 import java.util.Optional;
 
-//@Repository
-public class MemberRepository implements CommonRepository {
-    private final EntityManager em;
-
-    @Autowired
-    public MemberRepository(EntityManager em) {
-        this.em = em;
-    }
-
-    @Override
-    public Member save(Member member) {
-        em.persist(member);
-        return member;
-    }
-
-    @Override
-    public Optional<Member> findById(String id) {
-        Member member = em.find(Member.class, id);
-        return Optional.ofNullable(member);
-    }
-
-    @Override
-    public Optional<Member> findByName(String name) {
-        List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
-                .setParameter("name", name)
-                .getResultList();
-        return result.stream().findAny();
-    }
-
-    @Override
-    public List<Member> findAll() {
-        return em.createQuery("select m from Member m", Member.class)
-                .getResultList();
-    }
+public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
+    // 이메일로 회원 정보 조회 (select * from member_table where member_email=?)
+    Optional<MemberEntity> findByMemberEmail(String mail);
 }
