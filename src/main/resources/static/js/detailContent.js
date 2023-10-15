@@ -1,3 +1,13 @@
+
+const loadMap = function () {
+    const mapX = document.getElementById('mapX');
+    const mapY = document.getElementById('mapY');
+    console.log(mapX.value +', '+ mapY.value);
+    kakaoMapApi(mapY.value, mapX.value);
+}
+
+loadMap();
+
 /*
 function fileChange(obj) {
 	var filename;
@@ -106,6 +116,37 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
 });
 
 document.getElementById('uploadButton').addEventListener('click', function() {
-            // 실제로는 이곳에서 서버로 데이터 전송하는 코드를 작성해야 합니다.
-            // 예: fetch 또는 XMLHttpRequest를 사용하여 서버로 전송
+    // 실제로는 이곳에서 서버로 데이터 전송하는 코드를 작성해야 합니다.
+    // 예: fetch 또는 XMLHttpRequest를 사용하여 서버로 전송
+    const textInput = document.getElementById('textInput');
+    const fileInput = document.getElementById('fileInput');
+    const contentId = document.getElementById('contentId');
+    const memberEmail = document.getElementById('memberEmail');
+    const mapX = document.getElementById('mapX');
+    const mapY = document.getElementById('mapY');
+
+    if (textInput.value && fileInput.files && fileInput.files[0]) {
+        const formData = new FormData();
+        formData.append('contents', textInput.value);
+        formData.append('files', fileInput.files[0]);
+        formData.append('contentId', contentId.value);
+        formData.append('memberEmail', memberEmail.value);
+        formData.append('mapX', mapX.value);
+        formData.append('mapY', mapY.value);
+
+        console.log(contentId.value);
+        fetch('/footstamp/register', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // 성공 메시지 등의 처리
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // 오류 처리
+        });
+    }
 });

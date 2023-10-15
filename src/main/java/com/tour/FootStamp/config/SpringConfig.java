@@ -7,11 +7,13 @@ import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class SpringConfig {
+/*
 
     private EntityManager em;
 
@@ -24,11 +26,13 @@ public class SpringConfig {
     public MemberService memberService(){
         return new MemberImpl(memberRepository());
     }
+*/
 
-    @Bean
+    /*@Bean
     public MemberRepository memberRepository(){
         //return new MemoryMemberRepository();
         return new MemberRepository(em);
-    }
+
+    }*/
 
 }

@@ -46,7 +46,7 @@ public class MemberController {
         if (loginResult != null) {
             // login 성공
             session.setAttribute("loginEmail", loginResult.getMemberEmail());
-            return "members/main";
+            return "redirect:/";
         } else {
             // login 실패
             return "members/login";
@@ -91,7 +91,7 @@ public class MemberController {
     @GetMapping("/member/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "members/index";
+        return "redirect:/";
     }
 
     @PostMapping("/member/email-check")

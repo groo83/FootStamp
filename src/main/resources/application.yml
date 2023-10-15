@@ -6,6 +6,13 @@ jasypt:
     bean: jasyptEncryptorAES
 
 spring:
+  servlet:
+    multipart:
+      enabled: true
+      location: C:\project\FootStamp\src\main\resources\static\img #classpath:/static/img/
+      max-request-size: 300MB
+      max-file-size: 50MB
+
   output:
     ansi:
       enabled: always
@@ -45,3 +52,20 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  security:
+    require-ssl: true
+
+###############################
+#    HTTPS REDIRECT
+###############################
+#server:
+  #port: 443
+  #ssl:
+    #enabled: true
+    #key-store-type: PKCS12
+    #key-store: classpath:footstamp.p12
+    #key-store-password: ENC(8xUmKCWDhqSS1V7SyxAWply58vyuZqkn29gNN9OT/MrJhRSqVqBrxicgrHAAO+5P)
+
+  #http2:
+  #  enabled: true

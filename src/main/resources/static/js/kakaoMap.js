@@ -1,16 +1,16 @@
-if (!navigator.geolocation) {
-    status.textContent = "브라우저가 위치 정보를 지원하지 않음";
-} else {
-    status.textContent = "위치 파악 중…";
-    navigator.geolocation.getCurrentPosition(success, error);
+const currentPosition =function(){
+    if (!navigator.geolocation) {
+        status.textContent = "브라우저가 위치 정보를 지원하지 않음";
+    } else {
+        status.textContent = "위치 파악 중…";
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
 }
-
 function success(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     console.log(latitude +', '+ longitude);
     kakaoMapApi(latitude, longitude);
-    //ajax latitude, longitude
 }
 
 // kakaoMap 통신

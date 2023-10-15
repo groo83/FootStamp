@@ -32,6 +32,7 @@ public class HomeController {
 
         List<DetailDto> registerableStamp = searchService.searchRegisterableStamp( commonDto, EtcCode.DEFAULT_MAX_REDIUS );
 
+        // TODO Tour API timeout 처리
         model.addAttribute("registerableStamp", registerableStamp);
 
         return "home";

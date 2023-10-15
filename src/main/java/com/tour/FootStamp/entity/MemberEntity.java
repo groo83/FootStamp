@@ -2,6 +2,7 @@ package com.tour.FootStamp.entity;
 
 import com.tour.FootStamp.dto.MemberDTO;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 

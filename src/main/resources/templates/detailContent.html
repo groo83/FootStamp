@@ -42,10 +42,14 @@
                     <input type="text" id="textInput" placeholder="텍스트 입력">
                     <input type="file" id="fileInput" accept="image/*">
                     <button type="button" id="uploadButton">업로드</button>
+                    <input type="hidden" id="contentId" th:value="${detail.contentId}"/>
+                    <input type="hidden" id="memberEmail" th:value="${loginEmail}"/>
+                    <input type="hidden" id="mapX" th:value="${detail.mapx}"/>
+                    <input type="hidden" id="mapY" th:value="${detail.mapy}"/>
+
                 </form>
                 <div id="imageContainer"></div>
             </section>
-
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ import com.tour.FootStamp.common.code.OperationCode;
 import com.tour.FootStamp.dto.CommonDto;
 import com.tour.FootStamp.dto.DetailDto;
 import com.tour.FootStamp.service.SearchService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,10 +32,12 @@ public class SearchController {
     }
 
     @RequestMapping("detailContent")
-    public String searchDetail(Model model, CommonDto commonDto){
+    public String searchDetail(Model model, CommonDto commonDto, HttpSession session){
         DetailDto detail = searchService.searchDetailTourApi( commonDto );
 
         model.addAttribute("detail", detail);
+
+        model.addAttribute("loginEmail", session.getAttribute("loginEmail"));
         return "detailContent";
     }
 

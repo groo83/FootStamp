@@ -111,10 +111,27 @@ public class SearchImpl implements SearchService {
         JSONObject item = (JSONObject) array.get(0);
 
         ObjectMapper mapper = new ObjectMapper();
-        DetailDto detail = null;
+        DetailDto detail = new DetailDto();
+        System.out.println("json string ="+item.toJSONString());
         try {
-            detail = mapper.readValue(item.toJSONString(), DetailDto.class);
-        } catch (JsonProcessingException e) {
+            // detail = mapper.readValue(item.toJSONString(), DetailDto.class);
+            // contentid missing(null) -> 수동 변환
+            detail.setContentId(String.valueOf(item.get("contentid")));
+            detail.setBooktour(String.valueOf(item.get("booktour")));
+            detail.setHomepage(String.valueOf(item.get("homepage")));
+            detail.setAreacode(String.valueOf(item.get("areacode")));
+            detail.setMlevel(String.valueOf(item.get("mlevel")));
+            detail.setDist(String.valueOf(item.get("dist")));
+            detail.setContentTypeId(String.valueOf(item.get("contenttypeid")));
+            detail.setAddr1(String.valueOf(item.get("addr1")));
+            detail.setMapx(String.valueOf(item.get("mapx")));
+            detail.setMapy(String.valueOf(item.get("mapy")));
+            detail.setTitle(String.valueOf(item.get("title")));
+            detail.setTel(String.valueOf(item.get("tel")));
+            detail.setFirstimage(String.valueOf(item.get("firstimage")));
+            detail.setFirstimage2(String.valueOf(item.get("firstimage2")));
+            detail.setOverview(String.valueOf(item.get("overview")));
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

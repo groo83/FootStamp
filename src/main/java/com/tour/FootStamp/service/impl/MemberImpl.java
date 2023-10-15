@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@Transactional // 회원가입
-public class MemberImpl implements MemberService {
-    private final MemberRepository memberRepository;
+//@Service
+//@Transactional // 회원가입
+public class MemberImpl  {
+    /*private final MemberRepository memberRepository;
 
     @Autowired
     public MemberImpl(MemberRepository memberRepository) {
@@ -43,5 +43,5 @@ public class MemberImpl implements MemberService {
                 .ifPresent(m-> {
                     throw new IllegalStateException("이미 존재하는 회원입니다");
                 });
-    }
+    }*/
 }
